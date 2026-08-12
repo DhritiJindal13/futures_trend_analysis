@@ -1,0 +1,45 @@
+name: Update Futures Trend Analysis
+
+# Runs whenever a CSV in data/ changes on the main branch,
+# or manually via the "Run workflow" button in the Actions tab.
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'data/*.csv'
+  workflow_dispatch:
+
+jobs:
+  regenerate-outputs:
+    runs-on: ubuntu-latest
+
+    # Needed so the job can push the regenerated outputs back to the repo
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run analysis script
+        run: python main.py
+
+      - name: Commit and push updated outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add outputs/
+          if git diff --cached --quiet; then
+            echo "No changes to outputs, skipping commit."
+          else
+            git commit -m "Auto-update charts and reports [skip ci]"
+            git push
+          fi
