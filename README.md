@@ -35,7 +35,7 @@ futures_trend_analysis/
 The data is included in the repo under `data/`.
 
 - `nifty_50.csv` - Nifty 50 Futures, monthly data from Feb 2022 to Aug 2026
-- `crude_oil.csv` - Crude Oil (WTI) Futures, monthly data from Aug 2022 to Aug 2026
+- `Crude Oil WTI Futures Historical Data.csv` - Crude Oil (WTI) Futures, monthly data from Aug 2022 to Aug 2026
 
 Both were pulled from Investing.com's historical data export, with columns Date, Price, Open, High, Low, Vol., and Change %. The Price column is treated as the closing price for each period.
 
