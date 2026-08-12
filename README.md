@@ -52,7 +52,7 @@ This reads the CSVs, computes all the indicators, runs the trend reversal detect
 
 ## Some notes on the results
 
-Both datasets are monthly, which was intentional so the two instruments could be compared on the same timeframe. With around 50 data points each, the 20-period moving average takes a while to kick in, so the earliest chunk of each chart won't show a long-term trend line yet.
+Both datasets are Daily based, which was intentional so the two instruments could be compared on the same timeframe. 
 
 Crude oil showed a lot more volatility than Nifty over this period, which lines up with what you'd expect given how sensitive oil prices are to supply shocks and geopolitical events. Nifty had fewer trend reversals overall, more of a steady uptrend with a couple of sharp corrections.
 
